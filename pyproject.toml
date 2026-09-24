@@ -19,6 +19,7 @@ dependencies = [
 [project.optional-dependencies]
 test = ["pytest>=8"]
 dashboard = ["plotly>=6", "streamlit>=1.49"]
+documents = ["python-docx>=1.1"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
