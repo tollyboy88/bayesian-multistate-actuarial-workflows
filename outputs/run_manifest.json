@@ -1,0 +1,20 @@
+{
+  "outputs\\figures\\figure2_transition_intervals.png": "fecc6348421a6eff71a8b6a47d092b94fa749d1b47d2bb04513aa24178562e69",
+  "outputs\\figures\\figure3_parameter_recovery.png": "17f02b601414d07ba9cf6dfb73a34e4714982f6abab7cc63e3838196dc54b5ab",
+  "outputs\\figures\\figure5_pareto_frontier.png": "dff610cf5ef56940143ce44f4539557fd5ab1d4f660c515936f59d9dc416feea",
+  "outputs\\RESULTS.json": "90bae8b2f729835f5878b89ab081fd8db2a5cc05de4a38aef6691b57714361f0",
+  "outputs\\tables\\control_optimisation.csv": "91924fa6ffa4d8603debe6abf25b13c38a8b15acf48cfd255ccf5569149a4efc",
+  "outputs\\tables\\control_optimisation.parquet": "c0e67a9afaa2146c70ca5a5c2eb63355fc7693a77d3699173ff82f8bfede2721",
+  "outputs\\tables\\held_out_model_comparison.csv": "37fd9512ffcbcf2a8570e0533f4d12299223f8011237771ef5a4a11a2e27dbdb",
+  "outputs\\tables\\held_out_model_comparison.parquet": "28fd485ccde0d3874f3fbc7cb419f7695825ff8aed3e5c55d95807b01be2a75c",
+  "outputs\\tables\\parameter_recovery.csv": "cc2c773f86989af479c6c05b93f4472cdaadf2dad6902e972347b7fb2c3aebee",
+  "outputs\\tables\\parameter_recovery.parquet": "9eef96ca613ec1fd1846c9d41c601167f9c0738096f6957cf382dda37eedbc16",
+  "outputs\\tables\\parameter_recovery_summary.csv": "018f82ad614c8f41f21052ae90af9292e94e5fb8906ea8eaf47449f60d8debf5",
+  "outputs\\tables\\parameter_recovery_summary.parquet": "f7a10a816350568756cfa8a7dd80c8fb78b964f8429a77040c34823afa644658",
+  "outputs\\tables\\propagation_posterior.csv": "4726d839ce4a4b743c579792c4e747bdce44f36ba6cb392c21a552741a2bdbf3",
+  "outputs\\tables\\propagation_posterior.parquet": "fed0d12bef410df722676565dcb0bc72954909fd5391ab39a5ff5bb9254ef8f3",
+  "outputs\\tables\\recursion_validation.csv": "34a98a4bf7ec22411788effb2d85e2e7956619c25eba5231e0d1253ab5867a72",
+  "outputs\\tables\\recursion_validation.parquet": "32fb38bc7828a3a8f44cd3c7cc99c28ace589659c155f713d7f1c01a8a7330e5",
+  "outputs\\tables\\transition_posterior.csv": "8189d65888159239ccdd7a59a2afefebb178c429101195299a4b0df6add1f7dd",
+  "outputs\\tables\\transition_posterior.parquet": "0856adb3fd81db0a1ef2e9d402e7cfc8db9917271e7c1704d1a23ef5efda4398"
+}

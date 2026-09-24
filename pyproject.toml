@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bayesian-multistate-actuarial-workflows"
+version = "1.0.0"
+description = "Bayesian multistate modelling and control placement for automated actuarial workflows"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "matplotlib>=3.10",
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "pyarrow>=18",
+  "scipy>=1.15",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+dashboard = ["plotly>=6", "streamlit>=1.49"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

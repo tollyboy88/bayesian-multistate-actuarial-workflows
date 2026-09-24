@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: Bayesian Multistate Actuarial Workflows
+message: If you use this software, please cite the accompanying methodology paper and this repository.
+type: software
+authors:
+  - family-names: Adetola
+    given-names: Adebayo Aliu
+    orcid: https://orcid.org/0009-0002-1995-6400
+  - family-names: Akinade
+    given-names: Olugbenga
+    orcid: https://orcid.org/0000-0003-3950-3775
+repository-code: https://github.com/tollyboy88/bayesian-multistate-actuarial-workflows
+url: https://github.com/tollyboy88/bayesian-multistate-actuarial-workflows
+license: MIT
+version: 1.0.0
+date-released: 2026-09-24
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22821051
+    description: Shared open dataset archive

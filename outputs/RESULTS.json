@@ -1,0 +1,12 @@
+{
+  "observations": 6144,
+  "worlds": 8,
+  "hierarchical_log_score": 0.3601934705554323,
+  "global_log_score": 1.076326940612587,
+  "mean_90_coverage": 0.925,
+  "mean_95_coverage": 0.96875,
+  "max_recursion_difference": 0.0006348133810376577,
+  "selected_placement": "010101",
+  "selected_cost": 1200.0,
+  "selected_silent_probability": 0.004675324675324675
+}
