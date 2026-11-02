@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from bayesian_workflow.diagnostics import held_out_scores
+from bayesian_workflow.diagnostics import held_out_fault_cell_scores, held_out_scores, prior_sensitivity
 from bayesian_workflow.optimise import enumerate_stage_controls
 from bayesian_workflow.propagation_model import fit_markov_additive
 from bayesian_workflow.recursion import terminal_distribution
@@ -39,10 +39,14 @@ def main() -> None:
     write(fit_markov_additive(observations), "propagation_posterior")
     scores = held_out_scores(observations, [6, 7])
     write(scores, "held_out_model_comparison")
+    fault_scores = held_out_fault_cell_scores(observations)
+    write(fault_scores, "held_out_fault_cell_scores")
+    sensitivity = prior_sensitivity(observations)
+    write(sensitivity, "prior_sensitivity")
 
     recovery = run_recovery_study()
     write(recovery, "parameter_recovery")
-    recovery_summary = recovery.groupby("topology", as_index=False).agg(
+    recovery_summary = recovery.groupby(["parameter", "topology"], as_index=False).agg(
         bias=("estimate", lambda x: float((x - recovery.loc[x.index, "truth"]).mean())),
         rmse=("estimate", lambda x: float(np.sqrt(np.square(x - recovery.loc[x.index, "truth"]).mean()))),
         coverage_90=("covered_90", "mean"),
@@ -89,7 +93,7 @@ def main() -> None:
     plt.savefig(figures / "figure2_transition_intervals.png", dpi=300)
     plt.close()
 
-    summary_indexed = recovery_summary.set_index("topology")
+    summary_indexed = recovery_summary.loc[recovery_summary.parameter == "E_to_E"].set_index("topology")
     plt.figure(figsize=(6.5, 4.5))
     plt.bar(summary_indexed.index, summary_indexed.coverage_90)
     plt.axhline(0.9, color="black", linestyle="--")
@@ -122,6 +126,10 @@ def main() -> None:
         "selected_placement": str(selected.placement).zfill(6),
         "selected_cost": float(selected.annual_cost),
         "selected_silent_probability": float(selected.posterior_mean_silent_probability),
+        "selected_es_995": float(selected.posterior_mean_es_995),
+        "selected_probability_optimal": float(selected.posterior_probability_optimal),
+        "selected_constraint_probability": float(selected.posterior_probability_risk_constraint),
+        "held_out_fault_mean_log_score": float(fault_scores.log_score.mean()),
     }
     (OUTPUT / "RESULTS.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     manifest = {}

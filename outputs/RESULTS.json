@@ -1,12 +1,16 @@
 {
   "observations": 6144,
   "worlds": 8,
-  "hierarchical_log_score": 0.3601934705554323,
+  "hierarchical_log_score": 0.3378247752998124,
   "global_log_score": 1.076326940612587,
-  "mean_90_coverage": 0.925,
-  "mean_95_coverage": 0.96875,
-  "max_recursion_difference": 0.0006348133810376577,
+  "mean_90_coverage": 0.8599537037037037,
+  "mean_95_coverage": 0.9173611111111111,
+  "max_recursion_difference": 0.00010231088531609256,
   "selected_placement": "010101",
   "selected_cost": 1200.0,
-  "selected_silent_probability": 0.004675324675324675
+  "selected_silent_probability": 0.2085590627861614,
+  "selected_es_995": 1168554825767.1829,
+  "selected_probability_optimal": 0.09333333333333334,
+  "selected_constraint_probability": 0.9933333333333333,
+  "held_out_fault_mean_log_score": 0.5415549539643053
 }

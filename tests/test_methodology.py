@@ -31,8 +31,12 @@ def test_control_catalogue_has_global_selection():
     rows = []
     for stage in [f"S{i}_STAGE" for i in range(1, 7)]:
         for topology, outcome in [("T1_LINEAR", "E"), ("T2_VALIDATOR", "R")]:
-            rows.append({"stage": stage, "topology": topology, "state_before": "E", "state_after": outcome})
-    result = enumerate_stage_controls(pd.DataFrame(rows))
+            rows.append({"stage": stage, "fault_type": "F1_DATA", "topology": topology, "state_before": "E", "state_after": outcome,
+                         "paired_relative_delta": 0.1, "paired_log_increment": 0.0})
+    result = enumerate_stage_controls(pd.DataFrame(rows), posterior_draws=20, samples_per_draw=100)
     assert len(result) == 64
     assert result.selected.sum() == 1
     assert result.loc[result.selected, "feasible"].all()
+    assert "posterior_mean_es_995" in result
+    assert np.isclose(result.posterior_probability_optimal.sum(), 1.0)
+    assert result.loc[result.selected, "posterior_probability_risk_constraint"].iloc[0] >= 0.90
