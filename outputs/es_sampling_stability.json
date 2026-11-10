@@ -1,0 +1,12 @@
+{
+  "posterior_draws": 300,
+  "sparse_samples_per_draw": 1000,
+  "dense_samples_per_draw": 10000,
+  "dense_expected_tail_observations_per_draw": 50,
+  "selected_placement_1000": "010101",
+  "selected_placement_10000": "010101",
+  "spearman_all_placements": 0.9922619047619047,
+  "spearman_feasible_placements": 0.9298245614035087,
+  "top_10_overlap": 9,
+  "maximum_absolute_rank_change": 7
+}

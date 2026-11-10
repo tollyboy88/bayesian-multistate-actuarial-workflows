@@ -10,7 +10,8 @@ It is deliberately separate from the applied fault-injection testbed used by Pap
 - hierarchical held-out log score 0.338 versus 1.076 for the global baseline
 - expanded 27-cell, four-parameter recovery coverage of 86.0% and 91.7% at nominal 90% and 95%, documenting modest undercoverage
 - analytic recursion within 0.000103 of Monte Carlo simulation
-- budget-feasible control placement `010101`, with mean terminal active-error probability 0.209, 99.3% posterior constraint probability and 9.3% posterior probability of optimality
+- budget-feasible control placement `010101`, with mean terminal active-error probability 0.209, 99.3% posterior constraint probability and 9.0% posterior probability of optimality
+- stable ES₀.₉₉₅ ranking when predictive simulations increase from 1,000 to 10,000 per posterior draw (all-placement Spearman correlation 0.992)
 
 These are controlled-study results, not estimates of production insurer failure frequencies.
 

@@ -23,9 +23,13 @@ def _severity_draws(summary, stage, topology, faults, rng):
 
 def enumerate_stage_controls(observations: pd.DataFrame, stage_cost: float = 400.0, budget: float = 1_200.0,
     risk_limit: float = 0.35, required_probability: float = 0.90, posterior_draws: int = 300,
-    samples_per_draw: int = 1_000, seed: int = 20260923,
+    samples_per_draw: int = 10_000, seed: int = 20260923,
     model: HierarchicalDirichletTransitionModel | None = None) -> pd.DataFrame:
-    """Enumerate 64 placements using posterior ES and a posterior reliability constraint."""
+    """Enumerate 64 placements using posterior ES and a posterior reliability constraint.
+
+    The default gives about 50 predictive tail observations per posterior draw at
+    the 99.5% level, rather than the five available from 1,000 simulations.
+    """
     stages = sorted(observations.stage.unique(), key=lambda s: int(str(s)[1]))
     model = model or HierarchicalDirichletTransitionModel().fit(observations)
     severity = fit_markov_additive(observations)

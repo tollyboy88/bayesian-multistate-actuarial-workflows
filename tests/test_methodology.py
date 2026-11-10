@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from inspect import signature
 
 from bayesian_workflow.optimise import enumerate_stage_controls
 from bayesian_workflow.recursion import terminal_distribution
@@ -40,3 +41,9 @@ def test_control_catalogue_has_global_selection():
     assert "posterior_mean_es_995" in result
     assert np.isclose(result.posterior_probability_optimal.sum(), 1.0)
     assert result.loc[result.selected, "posterior_probability_risk_constraint"].iloc[0] >= 0.90
+def test_headline_es_uses_dense_predictive_sampling_by_default():
+    parameters = signature(enumerate_stage_controls).parameters
+    assert parameters["posterior_draws"].default == 300
+    assert parameters["samples_per_draw"].default == 10_000
+
+

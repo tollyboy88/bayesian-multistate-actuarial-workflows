@@ -9,8 +9,11 @@
   "selected_placement": "010101",
   "selected_cost": 1200.0,
   "selected_silent_probability": 0.2085590627861614,
-  "selected_es_995": 1168554825767.1829,
-  "selected_probability_optimal": 0.09333333333333334,
+  "selected_es_995": 1230514927071.0542,
+  "selected_probability_optimal": 0.09,
   "selected_constraint_probability": 0.9933333333333333,
-  "held_out_fault_mean_log_score": 0.5415549539643053
+  "held_out_fault_mean_log_score": 0.5415549539643053,
+  "posterior_draws": 300,
+  "predictive_samples_per_draw": 10000,
+  "expected_tail_observations_per_draw": 50
 }

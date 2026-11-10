@@ -19,6 +19,8 @@ from bayesian_workflow.transition_model import HierarchicalDirichletTransitionMo
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "transition_observations.parquet"
 OUTPUT = ROOT / "outputs"
+POSTERIOR_DRAWS = 300
+PREDICTIVE_SAMPLES_PER_DRAW = 10_000
 
 
 def write(frame: pd.DataFrame, name: str) -> None:
@@ -54,7 +56,11 @@ def main() -> None:
     )
     write(recovery_summary, "parameter_recovery_summary")
 
-    optimisation = enumerate_stage_controls(observations)
+    optimisation = enumerate_stage_controls(
+        observations,
+        posterior_draws=POSTERIOR_DRAWS,
+        samples_per_draw=PREDICTIVE_SAMPLES_PER_DRAW,
+    )
     write(optimisation, "control_optimisation")
 
     matrices = []
@@ -130,6 +136,9 @@ def main() -> None:
         "selected_probability_optimal": float(selected.posterior_probability_optimal),
         "selected_constraint_probability": float(selected.posterior_probability_risk_constraint),
         "held_out_fault_mean_log_score": float(fault_scores.log_score.mean()),
+        "posterior_draws": POSTERIOR_DRAWS,
+        "predictive_samples_per_draw": PREDICTIVE_SAMPLES_PER_DRAW,
+        "expected_tail_observations_per_draw": int(PREDICTIVE_SAMPLES_PER_DRAW * 0.005),
     }
     (OUTPUT / "RESULTS.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     manifest = {}

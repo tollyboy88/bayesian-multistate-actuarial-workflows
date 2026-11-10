@@ -3,7 +3,7 @@ import numpy as np
 
 def posterior_predictive_losses(p_silent_draws: np.ndarray, observed_errors: np.ndarray,
     log_increment_draws: np.ndarray | None = None, conversion: float = 0.05,
-    exposure: float = 1_000_000.0, samples_per_draw: int = 1_000, seed: int = 20260923) -> np.ndarray:
+    exposure: float = 1_000_000.0, samples_per_draw: int = 10_000, seed: int = 20260923) -> np.ndarray:
     """Draw conditional annual losses while retaining parameter uncertainty by row."""
     rng = np.random.default_rng(seed)
     p = np.clip(np.asarray(p_silent_draws, float), 0.0, 1.0)
